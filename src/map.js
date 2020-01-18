@@ -171,5 +171,13 @@ function addMarkerOnMap(dream)
         map: map,
         icon: dream.done?"images/markervisited.png":"images/marker.png"
    });
+
+   marker.addListener('click', zoomOn(marker.getPosition()));
+}
+
+function zoomOn(position){
+    map.setZoom(20);
+    map.panTo(position);
+    map.setMapTypeId('satellite');
 }
 
