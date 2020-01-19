@@ -1,7 +1,11 @@
-export {initMap, addMarkerOnMap};
+export {initMap, addMarkerOnMap, visitDreamOnMap};
 
 let map;
+let panorama;
+const panoramaElement = document.querySelector("#panorama");
+
 const resetMapButton = document.querySelector("#reset-map");
+const backtoMapButton = document.querySelector("#backto-map");
 
 function styleMap(){
     return ([
@@ -159,16 +163,30 @@ function initMap()
 {
     const style = styleMap();
     map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 48.858465, lng: 2.294524},
+        center: {lat: 48.858159, lng: 2.294497},
         zoom: 2,
         mapTypeId:'roadmap',
         styles: style
     });
+
+    panorama = new google.maps.StreetViewPanorama(
+        document.getElementById('panorama'), {
+          position: {lat: 48.858159, lng: 2.294497},
+          pov: {
+            heading: 34,
+            pitch: 10
+          }
+        });
+
+    panoramaElement.style.display = "none";
+    backtoMapButton.style.display = "none";
+ 
     addMapListener();
 }
 
 function addMapListener(){
     resetMapButton.addEventListener("click",resetMap);
+    backtoMapButton.addEventListener("click",backToMap);
 }
 
 function addMarkerOnMap(dream)
@@ -196,4 +214,18 @@ function resetMap(){
     map.setZoom(2);
     map.setCenter({lat: 48.858465, lng: 2.294524});
     map.setMapTypeId('roadmap');
+}
+
+function backToMap(){
+    panoramaElement.style.display = "none";
+    backtoMapButton.style.display = "none";
+    resetMapButton.style.display = "block";
+}
+
+function visitDreamOnMap(position)
+{
+    panorama.setPosition(position);
+    panoramaElement.style.display = "block";
+    backtoMapButton.style.display = "block";
+    resetMapButton.style.display = "none";
 }

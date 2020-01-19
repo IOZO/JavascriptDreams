@@ -8,8 +8,8 @@ const data = [
         done:false,
         link:'https://www.directours.com/d/les-iles/maldives?gclid=Cj0KCQiA9orxBRD0ARIsAK9JDxQOooscBJSnjodOVZ4Vl1o2s1eMWeL6Qwrh7xxxynYJw-opYAvKOOEaAkJYEALw_wcB',
         coordinates:{
-            lat: 0.280958,
-            lng: 73.361762
+            lat: 4.0076269,
+            lng: 72.8109145
         }
     },
     {
@@ -24,14 +24,14 @@ const data = [
         }
     },
     {
-        id:1,
+        id:3,
         imagePath:'images/usa.jpg',
         description:'Pur colorado USA',
         done:true,
         link:'https://www.directours.com/p/pur-colorado-71025',
         coordinates:{
-            lat: 36.153071,
-            lng: -112.102923
+            lat: 40.3427932,
+            lng: -105.6836389
         }
     }
 ]

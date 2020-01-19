@@ -1,6 +1,11 @@
-#map{
+#map, #panorama{
     width:100%;
     height:100%;
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
 }
 
 html,body{
@@ -36,7 +41,7 @@ html,body{
     background: #eee;
 }
 
-#reset-map{
+#reset-map, #backto-map{
     position:absolute;
     z-index:10;
     left:calc(50% - 75px);
