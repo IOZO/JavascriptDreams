@@ -1,6 +1,7 @@
 export {initMap, addMarkerOnMap};
 
 let map;
+const resetMapButton = document.querySelector("#reset-map");
 
 function styleMap(){
     return ([
@@ -159,9 +160,15 @@ function initMap()
     const style = styleMap();
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 48.858465, lng: 2.294524},
-        zoom: 3,
+        zoom: 2,
+        mapTypeId:'roadmap',
         styles: style
     });
+    addMapListener();
+}
+
+function addMapListener(){
+    resetMapButton.addEventListener("click",resetMap);
 }
 
 function addMarkerOnMap(dream)
@@ -172,12 +179,21 @@ function addMarkerOnMap(dream)
         icon: dream.done?"images/markervisited.png":"images/marker.png"
    });
 
-   marker.addListener('click', zoomOn(marker.getPosition()));
+   marker.addListener('click', function(){
+       zoomOn(marker.getPosition());
+   });
 }
 
 function zoomOn(position){
     map.setZoom(20);
-    map.panTo(position);
+    map.setCenter(position);
     map.setMapTypeId('satellite');
 }
 
+
+
+function resetMap(){
+    map.setZoom(2);
+    map.setCenter({lat: 48.858465, lng: 2.294524});
+    map.setMapTypeId('roadmap');
+}

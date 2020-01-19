@@ -36,6 +36,14 @@ html,body{
     background: #eee;
 }
 
+#reset-map{
+    position:absolute;
+    z-index:10;
+    left:calc(50% - 75px);
+    top:10px;
+    width:150px;
+}
+
 .card{
     margin:20px;
 }

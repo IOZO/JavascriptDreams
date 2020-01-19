@@ -27,7 +27,7 @@ const data = [
         id:1,
         imagePath:'images/usa.jpg',
         description:'Pur colorado USA',
-        done:false,
+        done:true,
         link:'https://www.directours.com/p/pur-colorado-71025',
         coordinates:{
             lat: 36.153071,
